@@ -52,7 +52,6 @@ public class configuracionSocket extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jTextField5 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -88,13 +87,6 @@ public class configuracionSocket extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 130, 30));
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 90, -1));
 
         jButton4.setText("jButton4");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -183,13 +175,9 @@ public class configuracionSocket extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String ip = jTextField2.getText();
         String puerto = jTextField3.getText();
-        String nombre = jTextField4.getText();
+        String nombre = "";
         SesionActiva.cliente = new Client(ip, Integer.valueOf(puerto), nombre);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         JSONObject data = new JSONObject();
@@ -213,7 +201,7 @@ public class configuracionSocket extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         System.out.println(SesionActiva.data.toString());
-        String ruta = "C:\\Users\\USUARIO\\Desktop\\reportesp2\\data.json";
+        String ruta = "data.json";
         try {
             FileWriter fw = new FileWriter(ruta);
             fw.write(SesionActiva.data.toString());
@@ -228,13 +216,12 @@ public class configuracionSocket extends javax.swing.JFrame {
 
         String ip = jTextField2.getText();
         String puerto = jTextField3.getText();
-        String nombre = jTextField4.getText();
+        String nombre = "";
         SesionActiva.cliente = new Client(ip, Integer.valueOf(puerto), nombre);
-
         JSONObject block;
         String res = "";
         try {
-            File bc = new File("C:\\Users\\USUARIO\\Desktop\\reportesp2\\blockchain.json");
+            File bc = new File("blockchain.json");
             FileReader fr = new FileReader(bc);
             BufferedReader br = new BufferedReader(fr);
             String linea;
@@ -254,7 +241,7 @@ public class configuracionSocket extends javax.swing.JFrame {
         SesionActiva.cliente.enviarjson(send.toString());
         block.put(pal, send);
         System.out.println(block.length());
-        String ruta = "C:\\Users\\USUARIO\\Desktop\\reportesp2\\blockchain.json";
+        String ruta = "blockchain.json";
         System.out.println(block.toString());
         try {
             FileWriter fw = new FileWriter(ruta);
@@ -264,6 +251,8 @@ public class configuracionSocket extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -284,7 +273,7 @@ public class configuracionSocket extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         String ip = jTextField2.getText();
         String puerto = jTextField3.getText();
-        String nombre = jTextField4.getText();
+        String nombre = "";
         LinkedList<String> lista = new LinkedList<>();
         //tipo
         lista.add("PEER");
@@ -387,7 +376,6 @@ public class configuracionSocket extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,6 +13,7 @@ import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
+import manejadores.manejadorUsuarios;
 import objetos.NodoRed;
 import objetos.SesionActiva;
 import ui.configuracionSocket;
@@ -101,13 +102,31 @@ public class ClientHandler extends Thread {
         try {
             JSONArray accion = operacion.getJSONArray("CREAR_USUARIO");
             String op = accion.toString();
+            JSONObject usuario = (JSONObject) accion.get(0);
+            manejadorUsuarios m = new manejadorUsuarios();
+            int carnet = usuario.getInt("Carnet");
+            String nombre = usuario.getString("Nombre");
+            String apellido = usuario.getString("Apellido");
+            String carrera = usuario.getString("Carrera");
+            String pass = usuario.getString("Password");
 
+            m.registrar(carnet, nombre, apellido, carrera, pass);
             return "CREAR_USUARIO";
         } catch (Exception e) {
         }
 
         try {
+            JSONArray accion = operacion.getJSONArray("CREAR_USUARIO");
             String op = operacion.getJSONArray("EDITAR_USUARIO").toString();
+            JSONObject usuario = (JSONObject) accion.get(0);
+            manejadorUsuarios m = new manejadorUsuarios();
+            int carnet = usuario.getInt("Carnet");
+            String nombre = usuario.getString("Nombre");
+            String apellido = usuario.getString("Apellido");
+            String carrera = usuario.getString("Carrera");
+            String pass = usuario.getString("Password");
+
+            m.editar(carnet, nombre, apellido, carrera, pass);
             return "EDITAR_USUARIO";
         } catch (Exception e) {
         }
@@ -288,8 +307,8 @@ public class ClientHandler extends Thread {
                 .stream()
                 .forEach(h -> h.enviarMensaje(auxLista));
     }
-    
-    private void dsc(){
+
+    private void dsc() {
     }
 
 }

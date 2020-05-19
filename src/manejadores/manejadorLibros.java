@@ -102,7 +102,7 @@ public class manejadorLibros {
                 String edicion = "" + js.getNumber("Edicion");
                 String categoria = js.getString("Categoria");
 
-                insertar_libro(isbn, titulo, autor, editorial, year, edicion, categoria, idioma, 201800519);
+                insertar_libro(isbn, titulo, autor, editorial, year, edicion, categoria, idioma, SesionActiva.usuario_sesion.getCarnet());
             }
             return true;
         } catch (Exception ex) {

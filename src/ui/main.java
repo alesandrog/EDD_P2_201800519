@@ -134,6 +134,7 @@ public class main extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         manejadorUsuarios manejador = new manejadorUsuarios();
         manejador.carga_masiva();
+        JOptionPane.showMessageDialog(null, "Carga Correcta");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -163,8 +164,7 @@ public class main extends javax.swing.JFrame {
         }
         //</editor-fold>
         manejadorUsuarios manejador = new manejadorUsuarios();
-        manejador.registrar(201800519, "nel", "gon", "sistemas", "pass");
-        manejador.registrar(201800520, "nel", "gon", "sistemas", "pass");
+        manejador.registrar(201800519, "nelson", "gonzalez", "sistemas", "pass");
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

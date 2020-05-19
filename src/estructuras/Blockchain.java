@@ -30,7 +30,7 @@ public class Blockchain {
 
         if (aux == inicio) {
             inicio = bloque;
-            bloque.setPrevious_hash("0000000000000000000000000");
+            bloque.setPrevious_hash("0000");
         } else {
             aux.setSiguiente(bloque);
             bloque.setPrevious_hash(aux.getHash());

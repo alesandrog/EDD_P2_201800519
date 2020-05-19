@@ -12,6 +12,7 @@ import java.util.Date;
 import objetos.SesionActiva;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import ui.configuracionSocket;
 
 /**
  *
@@ -58,6 +59,7 @@ public class manejadorBloques {
         while (true) {
             String tryNonce = hash();
             System.out.println(tryNonce);
+            configuracionSocket.jTextArea1.append(tryNonce + "\n");
             if (tryNonce.substring(0, 4).equals("0000")) {
                 return tryNonce;
             }
