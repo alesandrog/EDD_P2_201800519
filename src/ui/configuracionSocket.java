@@ -214,11 +214,11 @@ public class configuracionSocket extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
-        String ip = jTextField2.getText();
+/*        String ip = jTextField2.getText();
         String puerto = jTextField3.getText();
         String nombre = "";
         SesionActiva.cliente = new Client(ip, Integer.valueOf(puerto), nombre);
-        JSONObject block;
+*/        JSONObject block;
         String res = "";
         try {
             File bc = new File("blockchain.json");
